@@ -1,112 +1,111 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
+import React, { Component } from 'react'
+import { Text, View, TouchableOpacity, ScrollView, TouchableHighlight } from 'react-native'
+import Like from './component/Like'
+import DissLike from './component/DissLike'
 
-import React from 'react';
-import type {Node} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+class App extends Component {
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+  constructor(props){
+    super(props)
+    this.state = {
+        icon : require("./component/assets/like.png"),
+        icon2 : require("./component/assets/disslike.png")
+    }
+  }
+  
+  test = []
+  panjang = 10
+  lebar = 10
+  count = 0
+  x = 0
+  y = 0
 
-const Section = ({children, title}): Node => {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-};
+  changeIcon = () => {
+    this.setState({icon : require("./component/assets/disslike.png")})
+    // let test = []
+    // const panjang = 10
+    // const lebar = 10
+    // let count = 0
+    // let x = 0
+    // let y = 0
+    // for(x=1; x<=panjang; x++) {
+		// 	for(y=1; y<=lebar; y++) {
+		// 		count++;
+		// 		let countTemp = 0;
+		// 		for(let z = 1; z <= count; z++) {
+		// 			if(count % z == 0) {
+		// 				countTemp++;
+		// 			}
+		// 		}
+		// 		if(countTemp == 2) {
+		// 			this.test.push(<TouchableOpacity onPress={this}>
+    //         <DissLike/>
+    //       </TouchableOpacity>);
+		// 		}/*
+    //     else if(countTemp != 2) {
+		// 			this.test.push(<TouchableOpacity onPress={this.changeIcon}>
+    //         <Like/>
+    //       </TouchableOpacity>);
+		// 		}*/
+    //     else{
+    //       this.test.push(<TouchableOpacity onPress={this}>
+    //         <Like/>
+    //       </TouchableOpacity>);
+    //     }
+		// 	}
+    // }
+  }
 
-const App: () => Node = () => {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.js</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
-};
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
+  render() {
+    // const ruang = this.panjang * this.lebar
+    // for(let z = 0; z <= ruang; z++) {
+    //   this.test.push(<TouchableOpacity onPress={this.changeIcon}>
+    //     <Like/>
+    //   </TouchableOpacity>);
+    // }
+    // let test = []
+    const panjang = 10
+    const lebar = 10
+    let count = 0
+    let x = 0
+    let y = 0
+    for(x=1; x<=panjang; x++) {
+			for(y=1; y<=lebar; y++) {
+				count++;
+				let countTemp = 0;
+				for(let z = 1; z <= count; z++) {
+					if(count % z == 0) {
+						countTemp++;
+					}
+				}
+				if(countTemp == 2) {
+					this.test.push(<TouchableOpacity onPress= {this.changeIcon}>
+            <DissLike icon = {this.state.icon} />
+          </TouchableOpacity>);
+				}/*
+        else if(countTemp != 2) {
+					this.test.push(<TouchableOpacity onPress={this.changeIcon}>
+            <Like/>
+          </TouchableOpacity>);
+				}*/
+        else{
+          this.test.push(<TouchableOpacity onPress={}>
+            <Like/>
+          </TouchableOpacity>);
+        }
+			}
+    }
+    return (
+      <View>
+        <ScrollView>
+          <Text>{this.test}</Text>
+        </ScrollView>
+        {/* <TouchableOpacity onPress={this.changeIcon}>
+          <Like icon = {this.state.icon} />
+        </TouchableOpacity> */}
+      </View>
+    );
+  }
+}
 
 export default App;
