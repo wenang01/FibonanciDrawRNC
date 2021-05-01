@@ -49,7 +49,11 @@ class App extends Component {
             <DissLike icon={this.state.iconSetLike} />
           </TouchableOpacity>);
         } else {
-          this.test.push(<TouchableOpacity>
+          this.test.push(<TouchableOpacity onPress={
+            () => {
+              this.setState({ iconSetLike: require("./component/assets/like.png") })
+            }
+          }>
             <Like />
           </TouchableOpacity>);
         }
