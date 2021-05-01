@@ -30,6 +30,7 @@ class App extends Component {
     let count = 0
     let x = 0
     let y = 0
+    this.test = []
     for (x = 1; x <= panjang; x++) {
       for (y = 1; y <= lebar; y++) {
         count++;
