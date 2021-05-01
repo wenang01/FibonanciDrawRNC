@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View, TouchableOpacity, ScrollView, TouchableHighlight } from 'react-native'
+import { Text, View, TouchableOpacity, ScrollView } from 'react-native'
 import Like from './component/Like'
 import DissLike from './component/DissLike'
 
@@ -42,8 +42,7 @@ class App extends Component {
         if (countTemp == 2) {
           this.test.push(<TouchableOpacity onPress={
             () => {
-              this.test.
-                this.setState({ iconSetLike: require("./component/assets/disslike.png") })
+              this.setState({ iconSetLike: require("./component/assets/disslike.png") })
             }
           }>
             <DissLike icon={this.state.iconSetLike} />
@@ -56,9 +55,11 @@ class App extends Component {
       }
     }
     return (
-      <ScrollView>
-        <Text>{this.test}</Text>
-      </ScrollView>
+      <View>
+        <ScrollView>
+          <Text>{this.test}</Text>
+        </ScrollView>
+      </View>
     );
   }
 }
